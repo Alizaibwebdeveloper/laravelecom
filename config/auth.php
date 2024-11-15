@@ -18,6 +18,20 @@ return [
         'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
     ],
 
+    'admin'=>[
+        'driver'=>'eloquent',
+        'model'=>App\Models\Admin::class,
+    ],
+
+    'client'=>[
+        'driver'=>'eloquent',
+        'model'=>App\Models\Client::class,
+    ],
+    'seller'=>[
+        'driver'=>'eloquent',
+        'model'=>App\Models\Seller::class,
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -40,8 +54,25 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+        'client' => [
+            'driver' => 'session',
+            'provider' => 'clients',
+        ],
+
+        'seller' => [
+            'driver' => 'session',
+            'provider' => 'sellers',
+        ],
     ],
 
+
+    
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -97,6 +128,18 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'admins'=>[
+            'driver'=>'eloquent',
+            'model'=> App\Models\Admin::class,
+        ],
+        'clients'=> [
+            'driver'=> 'eloquent',
+            'model'=> App\Models\Client::class,
+        ],
+        'sellers'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Seller::class,    
+             ]
     ],
 
     /*
